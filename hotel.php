@@ -36,12 +36,6 @@
             'distance_to_center' => 50
         ],
     ];
-
-foreach ($hotels as $hotel) {
-    foreach($hotel as $h){
-        var_dump($h);
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +48,30 @@ foreach ($hotels as $hotel) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-dark pt-5 text-white container">
+<table class="table mt-5 text-white">
+    <thead>
+        <h1>Hotels</h1>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Parking</th>
+            <th scope="col">Vote</th>
+            <th scope="col">Distance from center</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($hotels as $hotel) : ?>
+        <tr>
+            <td><?= $hotel['name'] ?></td>
+            <td><?= $hotel['description'] ?></td>
+            <td><?= ($hotel['parking']) ? '&#10003;' : '&#10007;' ?></td>
+            <td><?= $hotel['vote'] ?> </td>
+            <td><?= $hotel['distance_to_center'] ?></td>        
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
 </body>
 </html>
